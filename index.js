@@ -55,7 +55,7 @@ class CameraRollPicker extends Component {
 
     this.state = {
       images: [],
-      selected: this.props.selected,
+      selected: [],
       lastCursor: null,
       initialLoading: true,
       loadingMore: false,
@@ -75,9 +75,7 @@ class CameraRollPicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      selected: nextProps.selected,
-    });
+
   }
 
   onEndReached() {
