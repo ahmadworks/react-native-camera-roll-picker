@@ -49,7 +49,7 @@ const nEveryRow = (data, n) => {
   return result;
 };
 
-const [photos, getPhotos, save] = useCameraRoll();
+
 
 class CameraRollPicker extends Component {
   constructor(props) {
@@ -113,6 +113,8 @@ class CameraRollPicker extends Component {
   }
 
   doFetch() {
+    const [photos, getPhotos, save] = useCameraRoll();
+    
     const { groupTypes, assetType } = this.props;
 
     const fetchParams = {
