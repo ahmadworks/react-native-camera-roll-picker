@@ -7,7 +7,7 @@ import {
   FlatList,
   ActivityIndicator,
 } from 'react-native';
-import CameraRoll from "@react-native-camera-roll/camera-roll";;
+import {useCameraRoll} from "@react-native-camera-roll/camera-roll";
 import PropTypes from 'prop-types';
 import Row from './Row';
 
@@ -48,6 +48,8 @@ const nEveryRow = (data, n) => {
 
   return result;
 };
+
+const [photos, getPhotos, save] = useCameraRoll();
 
 class CameraRollPicker extends Component {
   constructor(props) {
@@ -128,7 +130,7 @@ class CameraRollPicker extends Component {
       fetchParams.after = this.state.lastCursor;
     }
 
-    CameraRoll.getPhotos(fetchParams)
+    getPhotos(fetchParams)
       .then(data => this.appendImages(data), e => console.log(e));
   }
 
